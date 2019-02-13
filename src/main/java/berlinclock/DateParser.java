@@ -16,4 +16,12 @@ public class DateParser {
     public int getSeconds() {
         return calendar.get(Calendar.SECOND);
     }
+
+    public int getMinutes() {
+        return calendar.get(Calendar.MINUTE);
+    }
+
+    public int getHours() {
+        return calendar.get(Calendar.HOUR);
+    }
 }

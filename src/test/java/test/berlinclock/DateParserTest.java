@@ -22,4 +22,22 @@ public class DateParserTest {
         assertThat(parser.getSeconds(), is(equalTo(33)));
     }
 
+    @Test
+    public void getMinutesTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date date = format.parse("10:52:33");
+
+        DateParser parser = new DateParser(date);
+        assertThat(parser.getMinutes(), is(equalTo(52)));
+    }
+
+    @Test
+    public void getHoursTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date date = format.parse("10:52:33");
+
+        DateParser parser = new DateParser(date);
+        assertThat(parser.getHours(), is(equalTo(10)));
+    }
+
 }
