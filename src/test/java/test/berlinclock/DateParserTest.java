@@ -14,6 +14,15 @@ import static org.junit.Assert.*;
 public class DateParserTest {
 
     @Test
+    public void getParitySecondTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date date = format.parse("12:41:32");
+
+        DateParser parser = new DateParser(date);
+        assertThat(parser.getParitySecond(), is(equalTo(1)));
+    }
+
+    @Test
     public void getFiveBlockMinuteTest() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
         Date date = format.parse("12:41:32");

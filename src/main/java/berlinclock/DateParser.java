@@ -13,6 +13,10 @@ public class DateParser {
         calendar.setTime(date);
     }
 
+    public int getParitySecond() {
+        return getSeconds() % 2 == 0 ? 1 : 0;
+    }
+
     public int getFiveBlockMinute() {
         return getMinutes() / 5;
     }
