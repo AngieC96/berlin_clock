@@ -23,6 +23,15 @@ public class DateParserTest {
     }
 
     @Test
+    public void testGetFiveBlockHour() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date date = format.parse("23:34:02");
+
+        DateParser parser = new DateParser(date);
+        assertThat(parser.getFiveBlockHour(), is(equalTo(4)));
+    }
+
+    @Test
     public void getSecondsTest() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
         Date date = format.parse("10:52:33");
