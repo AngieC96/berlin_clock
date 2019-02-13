@@ -32,6 +32,15 @@ public class DateParserTest {
     }
 
     @Test
+    public void getSingleBlockMinuteTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date date = format.parse("14:48:24");
+
+        DateParser parser = new DateParser(date);
+        assertThat(parser.getSingleBlockMinute(), is(equalTo(3)));
+    }
+
+    @Test
     public void getSecondsTest() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
         Date date = format.parse("10:52:33");
