@@ -12,4 +12,8 @@ public class DateParser {
         calendar = GregorianCalendar.getInstance();
         calendar.setTime(date);
     }
+
+    public int getSeconds() {
+        return calendar.get(Calendar.SECOND);
+    }
 }
