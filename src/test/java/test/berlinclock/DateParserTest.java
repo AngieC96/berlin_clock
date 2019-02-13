@@ -25,7 +25,7 @@ public class DateParserTest {
     @Test
     public void getMinutesTest() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-        Date date = format.parse("10:52:33");
+        Date date = format.parse("11:52:33");
 
         DateParser parser = new DateParser(date);
         assertThat(parser.getMinutes(), is(equalTo(52)));
@@ -34,10 +34,10 @@ public class DateParserTest {
     @Test
     public void getHoursTest() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-        Date date = format.parse("10:52:33");
+        Date date = format.parse("23:52:33");
 
         DateParser parser = new DateParser(date);
-        assertThat(parser.getHours(), is(equalTo(10)));
+        assertThat(parser.getHours(), is(equalTo(23)));
     }
 
 }

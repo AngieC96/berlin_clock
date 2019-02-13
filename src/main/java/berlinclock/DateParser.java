@@ -22,6 +22,6 @@ public class DateParser {
     }
 
     public int getHours() {
-        return calendar.get(Calendar.HOUR);
+        return calendar.get(Calendar.HOUR_OF_DAY);
     }
 }
