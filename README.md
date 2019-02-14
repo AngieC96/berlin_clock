@@ -8,7 +8,7 @@
 
 The Berlin Clock (Mengenlehreclock or Berlin Uhr) is a clock that tells the time using a series of illuminated colored blocks, as you can see in the picture on the right.
 
-![berliclock](https://moodle2.units.it/pluginfile.php/233711/mod_page/content/2/Berlin%20Clock.png)
+![berliclock](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Berlin-Uhr-1650-1705.gif/170px-Berlin-Uhr-1650-1705.gif)
 
 ---
 
