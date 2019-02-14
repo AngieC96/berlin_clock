@@ -4,13 +4,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class DateParser {
+public class TimeParser {
 
     private Calendar calendar;
 
-    public DateParser(Date date) {
+    public TimeParser(Date time) {
         calendar = GregorianCalendar.getInstance();
-        calendar.setTime(date);
+        calendar.setTime(time);
     }
 
     public int getParitySecond() {
