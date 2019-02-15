@@ -9,8 +9,11 @@ public class BerlinClock {
     private TimeDisplayer timeDisplayer;
 
     public BerlinClock() throws ParseException {
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-        Date time = format.parse("12:41:32");
+        Date time = new Date();
+        timeDisplayer = new TimeDisplayer(time);
+    }
+
+    public BerlinClock(Date time) {
         timeDisplayer = new TimeDisplayer(time);
     }
 
