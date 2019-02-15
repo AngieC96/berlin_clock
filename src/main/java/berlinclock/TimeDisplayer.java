@@ -27,6 +27,17 @@ public class TimeDisplayer {
         return template;
     }
 
+    public char[] computeFiveBlockMinuteStatus(){
+        char[] template = {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'};
+        int nOn = timeParser.getFiveBlockMinute();
+
+        for (int i = 0; i < nOn; i++) {
+            template[i] = (((i+1) % 3) == 0) ? 'R' : 'Y';
+        }
+
+        return template;
+    }
+
     public char[] computeSingleBlockHourStatus() {
         char[] template = {'O', 'O', 'O', 'O'};
         int nOn = timeParser.getSingleBlockHour();
