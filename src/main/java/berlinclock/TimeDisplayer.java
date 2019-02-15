@@ -49,4 +49,15 @@ public class TimeDisplayer {
         return template;
     }
 
+    public char[] computeSingleBlockMinuteStatus() {
+        char[] template = {'O', 'O', 'O', 'O'};
+        int nOn = timeParser.getSingleBlockMinute();
+
+        for (int i = 0; i < nOn; i++) {
+            template[i] = 'Y';
+        }
+
+        return template;
+    }
+
 }
