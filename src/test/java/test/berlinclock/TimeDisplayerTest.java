@@ -1,6 +1,6 @@
 package test.berlinclock;
 
-import berlinclock.TimeDisplayer;
+import berlinclock.StatusComputer;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -18,52 +18,52 @@ public class TimeDisplayerTest {
     public void  computeSecondStatusTest() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
         Date time = format.parse("12:41:32");
-        TimeDisplayer timedisplayer = new TimeDisplayer(time);
+        StatusComputer timeDisplayer = new StatusComputer(time);
 
-        assertThat(timedisplayer.computeSecondStatus(), is(equalTo('O')));
+        assertThat(timeDisplayer.computeSecondStatus(), is(equalTo('O')));
     }
 
     @Test
     public void computeFiveBlockHourStatusTest() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
         Date time = format.parse("17:41:32");
-        TimeDisplayer timedisplayer = new TimeDisplayer(time);
+        StatusComputer timeDisplayer = new StatusComputer(time);
 
         char[] expected = {'Y', 'Y', 'Y', 'O'};
 
-        assertArrayEquals(timedisplayer.computeFiveBlockHourStatus(), expected);
+        assertArrayEquals(timeDisplayer.computeFiveBlockHourStatus(), expected);
     }
 
     @Test
     public void computeSingleBlockHourStatusTest() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
         Date time = format.parse("17:42:32");
-        TimeDisplayer timedisplayer = new TimeDisplayer(time);
+        StatusComputer timeDisplayer = new StatusComputer(time);
 
         char[] expected = {'Y', 'Y', 'O', 'O'};
 
-        assertArrayEquals(timedisplayer.computeSingleBlockHourStatus(), expected);
+        assertArrayEquals(timeDisplayer.computeSingleBlockHourStatus(), expected);
     }
 
     @Test
     public void computeFiveBlockMinuteStatusTest() throws ParseException  {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
         Date time = format.parse("17:47:32");
-        TimeDisplayer timedisplayer = new TimeDisplayer(time);
+        StatusComputer timeDisplayer = new StatusComputer(time);
 
         char[] expected = {'Y', 'Y', 'R', 'Y', 'Y', 'R', 'Y', 'Y', 'R', 'O', 'O' };
 
-        assertArrayEquals(timedisplayer.computeFiveBlockMinuteStatus(), expected);
+        assertArrayEquals(timeDisplayer.computeFiveBlockMinuteStatus(), expected);
     }
 
     @Test
-    public void computeSinlgeBlockMinuteStatusTest() throws ParseException  {
+    public void computeSingleBlockMinuteStatusTest() throws ParseException  {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
         Date time = format.parse("17:07:32");
-        TimeDisplayer timedisplayer = new TimeDisplayer(time);
+        StatusComputer timeDisplayer = new StatusComputer(time);
 
         char[] expected = {'Y', 'Y', 'O', 'O'};
 
-        assertArrayEquals(timedisplayer.computeSingleBlockMinuteStatus(), expected);
+        assertArrayEquals(timeDisplayer.computeSingleBlockMinuteStatus(), expected);
     }
 }

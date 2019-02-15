@@ -2,23 +2,34 @@ package berlinclock;
 
 import java.util.Date;
 
-public class TimeDisplayer {
+public class StatusComputer {
 
     private TimeParser timeParser;
 
-    public TimeDisplayer(Date time) {
+    public StatusComputer(Date time) {
         timeParser = new TimeParser(time);
     }
 
     public char computeSecondStatus(){
-        char second = 'O';
-        if (timeParser.getSeconds() == 1) second = 'R';
-        return second;
+        char template = 'O';
+        if (timeParser.getSeconds() == 1) template = 'R';
+        return template;
     }
 
     public char[] computeFiveBlockHourStatus() {
         char[] template = {'O', 'O', 'O', 'O'};
         int nOn = timeParser.getFiveBlockHour();
+
+        for (int i = 0; i < nOn; i++) {
+            template[i] = 'Y';
+        }
+
+        return template;
+    }
+
+    public char[] computeSingleBlockHourStatus() {
+        char[] template = {'O', 'O', 'O', 'O'};
+        int nOn = timeParser.getSingleBlockHour();
 
         for (int i = 0; i < nOn; i++) {
             template[i] = 'Y';
@@ -33,17 +44,6 @@ public class TimeDisplayer {
 
         for (int i = 0; i < nOn; i++) {
             template[i] = (((i+1) % 3) == 0) ? 'R' : 'Y';
-        }
-
-        return template;
-    }
-
-    public char[] computeSingleBlockHourStatus() {
-        char[] template = {'O', 'O', 'O', 'O'};
-        int nOn = timeParser.getSingleBlockHour();
-
-        for (int i = 0; i < nOn; i++) {
-            template[i] = 'Y';
         }
 
         return template;
