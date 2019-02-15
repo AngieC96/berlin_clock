@@ -36,4 +36,13 @@ public class TimeDisplayerTest {
         assertThat(timeDisplayer.getSingleBlockHourString(), is(equalTo(expected)));
     }
 
+    @Test
+    public void getSecondStringTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date time = format.parse("12:41:32");
+        TimeDisplayer displayer = new TimeDisplayer(time);
+
+        assertThat(displayer.getSecondString(), is(equalTo("           O           ")));
+
+    }
 }

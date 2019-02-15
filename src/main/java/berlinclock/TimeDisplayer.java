@@ -23,4 +23,9 @@ public class TimeDisplayer {
 
         return output;
     }
+
+    public String getSecondString(){
+        return String.format("           %c           ", statusComputer.computeSecondStatus());
+    }
+
 }
