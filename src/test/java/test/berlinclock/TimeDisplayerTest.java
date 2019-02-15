@@ -45,4 +45,28 @@ public class TimeDisplayerTest {
         assertThat(displayer.getSecondString(), is(equalTo("           O           ")));
 
     }
+
+    @Test
+    public void getSingleBlockMinuteStringTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date time = format.parse("12:37:32");
+        TimeDisplayer displayer = new TimeDisplayer(time);
+
+        String expected = "   Y    Y     O    O   ";
+
+        assertThat(displayer.getSingleBlockMinuteString(), is(equalTo(expected)));
+
+    }
+
+    @Test
+    public void getFiveBlockMinuteStringTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date time = format.parse("12:42:32");
+        TimeDisplayer displayer = new TimeDisplayer(time);
+
+        String expected = " Y Y R Y Y R Y Y O O O ";
+
+        assertThat(displayer.getFiveBlockMinuteString(), is(equalTo(expected)));
+
+    }
 }
