@@ -25,4 +25,15 @@ public class TimeDisplayerTest {
         assertThat(timeDisplayer.getFiveBlockHourString(), is(equalTo(expected)));
     }
 
+    @Test
+    public void getSingleBlockHourStringTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date time = format.parse("18:41:32");
+        TimeDisplayer timeDisplayer = new TimeDisplayer(time);
+
+        String expected = "   R    R     R    O   ";
+
+        assertThat(timeDisplayer.getSingleBlockHourString(), is(equalTo(expected)));
+    }
+
 }
