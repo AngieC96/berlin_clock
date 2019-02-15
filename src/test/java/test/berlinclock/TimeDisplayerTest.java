@@ -33,4 +33,15 @@ public class TimeDisplayerTest {
 
         assertArrayEquals(timedisplayer.computeFiveBlockHourStatus(), expected);
     }
+
+    @Test
+    public void computeSingleBlockHourStatusTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date time = format.parse("17:42:32");
+        TimeDisplayer timedisplayer = new TimeDisplayer(time);
+
+        char[] expected = {'Y', 'Y', 'O', 'O'};
+
+        assertArrayEquals(timedisplayer.computeSingleBlockHourStatus(), expected);
+    }
 }

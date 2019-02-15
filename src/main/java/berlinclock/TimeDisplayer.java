@@ -26,4 +26,15 @@ public class TimeDisplayer {
 
         return template;
     }
+
+    public char[] computeSingleBlockHourStatus() {
+        char[] template = {'O', 'O', 'O', 'O'};
+        int nOn = timeParser.getSingleBlockHour();
+
+        for (int i = 0; i < nOn; i++) {
+            template[i] = 'Y';
+        }
+
+        return template;
+    }
 }
