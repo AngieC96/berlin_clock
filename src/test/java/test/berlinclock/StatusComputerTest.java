@@ -12,7 +12,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
 
 
-public class TimeDisplayerTest {
+public class StatusComputerTest {
 
     @Test
     public void  computeSecondStatusTest() throws ParseException {
