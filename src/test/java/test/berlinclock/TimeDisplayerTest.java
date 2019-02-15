@@ -1,4 +1,4 @@
-package berlinclock;
+package test.berlinclock;
 
 import static org.junit.Assert.*;
 
