@@ -29,7 +29,7 @@ public class StatusComputerTest {
         Date time = format.parse("17:41:32");
         StatusComputer timeDisplayer = new StatusComputer(time);
 
-        char[] expected = {'Y', 'Y', 'Y', 'O'};
+        char[] expected = {'R', 'R', 'R', 'O'};
 
         assertArrayEquals(timeDisplayer.computeFiveBlockHourStatus(), expected);
     }
@@ -40,7 +40,7 @@ public class StatusComputerTest {
         Date time = format.parse("17:42:32");
         StatusComputer timeDisplayer = new StatusComputer(time);
 
-        char[] expected = {'Y', 'Y', 'O', 'O'};
+        char[] expected = {'R', 'R', 'O', 'O'};
 
         assertArrayEquals(timeDisplayer.computeSingleBlockHourStatus(), expected);
     }

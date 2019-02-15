@@ -21,7 +21,7 @@ public class StatusComputer {
         int nOn = timeParser.getFiveBlockHour();
 
         for (int i = 0; i < nOn; i++) {
-            template[i] = 'Y';
+            template[i] = 'R';
         }
 
         return template;
@@ -32,7 +32,7 @@ public class StatusComputer {
         int nOn = timeParser.getSingleBlockHour();
 
         for (int i = 0; i < nOn; i++) {
-            template[i] = 'Y';
+            template[i] = 'R';
         }
 
         return template;
