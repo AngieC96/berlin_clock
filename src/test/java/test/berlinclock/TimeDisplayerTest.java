@@ -69,4 +69,19 @@ public class TimeDisplayerTest {
         assertThat(displayer.getFiveBlockMinuteString(), is(equalTo(expected)));
 
     }
+
+    @Test
+    public void toStringTest() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        Date time = format.parse("17:42:02");
+        TimeDisplayer displayer = new TimeDisplayer(time);
+
+        String expected = "           O           " + '\n' +
+                "   R    R     R    O   " + '\n' +
+                "   R    R     O    O   " + '\n' +
+                " Y Y R Y Y R Y Y O O O " + '\n' +
+                "   Y    Y     O    O   " + '\n';
+
+        assertThat(displayer.toString(), is(equalTo(expected)));
+    }
 }

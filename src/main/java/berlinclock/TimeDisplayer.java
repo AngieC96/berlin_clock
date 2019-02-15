@@ -38,4 +38,11 @@ public class TimeDisplayer {
         return String.format(template, status[0], status[1], status[2], status[3], status[4],  status[5], status[6], status[7], status[8], status[9], status[10]);
     }
 
+    public String toString() {
+        return getSecondString() + '\n' +
+                getFiveBlockHourString() + '\n' +
+                getSingleBlockHourString() + '\n' +
+                getFiveBlockMinuteString() + '\n' +
+                getSingleBlockMinuteString() + '\n';
+    }
 }
