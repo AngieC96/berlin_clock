@@ -10,7 +10,7 @@ public class StatusComputer {
         timeParser = new TimeParser(time);
     }
 
-    public char computeSecondStatus(){
+    public char computeSecondStatus() {
         char template = 'O';
         if (timeParser.getParitySecond() == 1) template = 'R';
         return template;
@@ -38,12 +38,12 @@ public class StatusComputer {
         return template;
     }
 
-    public char[] computeFiveBlockMinuteStatus(){
+    public char[] computeFiveBlockMinuteStatus() {
         char[] template = {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'};
         int nOn = timeParser.getFiveBlockMinute();
 
         for (int i = 0; i < nOn; i++) {
-            template[i] = (((i+1) % 3) == 0) ? 'R' : 'Y';
+            template[i] = (((i + 1) % 3) == 0) ? 'R' : 'Y';
         }
 
         return template;

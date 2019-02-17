@@ -18,16 +18,12 @@ public class TimeParser {
         return time.getMinute() / 5;
     }
 
-    public int getSingleBlockMinute(){
-        return time.getMinute() % 5;
-    }
+    public int getSingleBlockMinute() { return time.getMinute() % 5; }
 
     public int getSingleBlockHour() {
         return time.getHour() % 5;
     }
 
-    public int getFiveBlockHour(){
-        return time.getHour() / 5;
-    }
+    public int getFiveBlockHour() { return time.getHour() / 5; }
 
 }

@@ -13,7 +13,7 @@ public class TimeParserTest {
 
     @Test
     public void getParitySecondTest() {
-        LocalTime time = LocalTime.of(12,35, 12);
+        LocalTime time = LocalTime.of(12, 35, 12);
 
         TimeParser parser = new TimeParser(time);
         assertThat(parser.getParitySecond(), is(equalTo(1)));
@@ -21,7 +21,7 @@ public class TimeParserTest {
 
     @Test
     public void getFiveBlockMinuteTest() {
-        LocalTime time = LocalTime.of(12,41, 32);
+        LocalTime time = LocalTime.of(12, 41, 32);
 
         TimeParser parser = new TimeParser(time);
         assertThat(parser.getFiveBlockMinute(), is(equalTo(8)));
@@ -29,7 +29,7 @@ public class TimeParserTest {
 
     @Test
     public void getSingleBlockHourTest() {
-        LocalTime time = LocalTime.of(12,11, 32);
+        LocalTime time = LocalTime.of(12, 11, 32);
 
         TimeParser parser = new TimeParser(time);
         assertThat(parser.getSingleBlockHour(), is(equalTo(2)));
@@ -37,7 +37,7 @@ public class TimeParserTest {
 
     @Test
     public void testGetFiveBlockHour() {
-        LocalTime time = LocalTime.of(23,34, 2);
+        LocalTime time = LocalTime.of(23, 34, 2);
 
         TimeParser parser = new TimeParser(time);
         assertThat(parser.getFiveBlockHour(), is(equalTo(4)));
@@ -45,7 +45,7 @@ public class TimeParserTest {
 
     @Test
     public void getSingleBlockMinuteTest() {
-        LocalTime time = LocalTime.of(14,48, 25);
+        LocalTime time = LocalTime.of(14, 48, 25);
 
         TimeParser parser = new TimeParser(time);
         assertThat(parser.getSingleBlockMinute(), is(equalTo(3)));

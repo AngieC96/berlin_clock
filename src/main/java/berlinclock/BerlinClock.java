@@ -17,12 +17,12 @@ public class BerlinClock {
         timeDisplayer = new TimeDisplayer(time);
     }
 
-    public void print(){
-        System.out.println( timeDisplayer );
+    public void print() {
+        System.out.println(timeDisplayer);
     }
 
     public static void main(String[] args) throws InterruptedException {
-        while(true) {
+        while (true) {
             BerlinClock berlinclock = new BerlinClock();
             berlinclock.print();
 
