@@ -1,12 +1,12 @@
 package berlinclock;
 
-import java.util.Date;
+import java.time.LocalTime;
 
 public class TimeDisplayer {
 
     private StatusComputer statusComputer;
 
-    public TimeDisplayer(Date time){ statusComputer = new StatusComputer(time); }
+    public TimeDisplayer(LocalTime time){ statusComputer = new StatusComputer(time); }
 
     public String getFiveBlockHourString() {
         String template = "   %c    %c     %c    %c   ";

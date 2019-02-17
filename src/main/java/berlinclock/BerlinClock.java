@@ -1,8 +1,6 @@
 package berlinclock;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalTime;
 
 import static java.lang.Thread.sleep;
 
@@ -10,12 +8,12 @@ public class BerlinClock {
 
     private TimeDisplayer timeDisplayer;
 
-    public BerlinClock() throws ParseException {
-        Date time = new Date();
+    public BerlinClock() {
+        LocalTime time = LocalTime.now();
         timeDisplayer = new TimeDisplayer(time);
     }
 
-    public BerlinClock(Date time) {
+    public BerlinClock(LocalTime time) {
         timeDisplayer = new TimeDisplayer(time);
     }
 
@@ -25,13 +23,8 @@ public class BerlinClock {
 
     public static void main(String[] args) throws InterruptedException {
         while(true) {
-
-            try {
-                BerlinClock berlinclock = new BerlinClock();
-                berlinclock.print();
-            } catch (ParseException e) {
-                System.out.println("Impossible to get current date");
-            }
+            BerlinClock berlinclock = new BerlinClock();
+            berlinclock.print();
 
             sleep(1000);
         }

@@ -1,18 +1,18 @@
 package berlinclock;
 
-import java.util.Date;
+import java.time.LocalTime;
 
 public class StatusComputer {
 
     private TimeParser timeParser;
 
-    public StatusComputer(Date time) {
+    public StatusComputer(LocalTime time) {
         timeParser = new TimeParser(time);
     }
 
     public char computeSecondStatus(){
         char template = 'O';
-        if (timeParser.getSeconds() == 1) template = 'R';
+        if (timeParser.getParitySecond() == 1) template = 'R';
         return template;
     }
 
