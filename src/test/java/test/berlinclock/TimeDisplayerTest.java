@@ -67,7 +67,7 @@ public class TimeDisplayerTest {
         LocalTime time = LocalTime.of(6, 41, 37);
         TimeDisplayer timeDisplayer = new TimeDisplayer(time);
 
-        String expected = "   \033[31m█    \033[37m█     \033[37m█    \033[37m█   ";
+        String expected = "   \033[31m▀    \033[37m▀     \033[37m▀    \033[37m▀   ";
 
         assertThat(timeDisplayer.getSingleBlockHourStringColored(), is(equalTo(expected)));
     }
@@ -91,11 +91,11 @@ public class TimeDisplayerTest {
         LocalTime time = LocalTime.of(17, 42, 2);
         TimeDisplayer displayer = new TimeDisplayer(time, true);
 
-        String expected = "           \033[31m█           " + '\n' +
-                "   \033[31m█    \033[31m█     \033[31m█    \033[37m█   " + '\n' +
-                "   \033[31m█    \033[31m█     \033[37m█    \033[37m█   " + '\n' +
-                " \033[33m█ \033[33m█ \033[31m█ \033[33m█ \033[33m█ \033[31m█ \033[33m█ \033[33m█ \033[37m█ \033[37m█ \033[37m█ " + '\n' +
-                "   \033[33m█    \033[33m█     \033[37m█    \033[37m█   " + '\n';
+        String expected = "           \033[31m▀           " + '\n' +
+                "   \033[31m▀    \033[31m▀     \033[31m▀    \033[37m▀   " + '\n' +
+                "   \033[31m▀    \033[31m▀     \033[37m▀    \033[37m▀   " + '\n' +
+                " \033[33m▀ \033[33m▀ \033[31m▀ \033[33m▀ \033[33m▀ \033[31m▀ \033[33m▀ \033[33m▀ \033[37m▀ \033[37m▀ \033[37m▀ " + '\n' +
+                "   \033[33m▀    \033[33m▀     \033[37m▀    \033[37m▀   " + '\n';
 
         assertThat(displayer.toString(), is(equalTo(expected)));
     }
@@ -105,7 +105,7 @@ public class TimeDisplayerTest {
         LocalTime time = LocalTime.of(18, 41, 32);
         TimeDisplayer displayer = new TimeDisplayer(time);
 
-        assertThat(displayer.getSecondStringColored(), is(equalTo("           \033[31m█           ")));
+        assertThat(displayer.getSecondStringColored(), is(equalTo("           \033[31m▀           ")));
 
     }
 
@@ -114,7 +114,7 @@ public class TimeDisplayerTest {
         LocalTime time = LocalTime.of(12, 41, 32);
         TimeDisplayer timeDisplayer = new TimeDisplayer(time);
 
-        String expected = "   \033[31m█    \033[31m█     \033[37m█    \033[37m█   ";
+        String expected = "   \033[31m▀    \033[31m▀     \033[37m▀    \033[37m▀   ";
 
         assertThat(timeDisplayer.getFiveBlockHourStringColored(), is(equalTo(expected)));
     }
@@ -124,7 +124,7 @@ public class TimeDisplayerTest {
         LocalTime time = LocalTime.of(12, 37, 32);
         TimeDisplayer displayer = new TimeDisplayer(time);
 
-        String expected = "   \033[33m█    \033[33m█     \033[37m█    \033[37m█   ";
+        String expected = "   \033[33m▀    \033[33m▀     \033[37m▀    \033[37m▀   ";
 
         assertThat(displayer.getSingleBlockMinuteStringColored(), is(equalTo(expected)));
 
@@ -135,7 +135,7 @@ public class TimeDisplayerTest {
         LocalTime time = LocalTime.of(12, 42, 32);
         TimeDisplayer displayer = new TimeDisplayer(time);
 
-        String expected = " \033[33m█ \033[33m█ \033[31m█ \033[33m█ \033[33m█ \033[31m█ \033[33m█ \033[33m█ \033[37m█ \033[37m█ \033[37m█ ";
+        String expected = " \033[33m▀ \033[33m▀ \033[31m▀ \033[33m▀ \033[33m▀ \033[31m▀ \033[33m▀ \033[33m▀ \033[37m▀ \033[37m▀ \033[37m▀ ";
 
         assertThat(displayer.getFiveBlockMinuteStringColored(), is(equalTo(expected)));
 
