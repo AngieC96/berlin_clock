@@ -87,6 +87,15 @@ public class TimeDisplayerTest {
     }
 
     @Test
+    public void getSecondStringColoredTest() {
+        LocalTime time = LocalTime.of(18, 41, 32);
+        TimeDisplayer displayer = new TimeDisplayer(time);
+
+        assertThat(displayer.getSecondStringColored(), is(equalTo("           \\e[31m█           ")));
+
+    }
+
+    @Test
     public void getFiveBlockHourStringColoredTest() {
         LocalTime time = LocalTime.of(12, 41, 32);
         TimeDisplayer timeDisplayer = new TimeDisplayer(time);
