@@ -84,4 +84,32 @@ public class TimeDisplayer {
 
         return String.format(template, color[0], color[1], color[2], color[3]);
     }
+
+    public String getSingleBlockMinuteStringColored() {
+        String template = "   %s    %s     %s    %s   ";
+        char[] status = statusComputer.computeSingleBlockMinuteStatus();
+        String[] color = new String[4];
+
+        for ( int i=0; i<status.length; i++) {
+            color[i] = status[i] == 'Y' ?  "\\e[33m█" : "\\e[37m█";
+        }
+
+        return String.format(template, color[0], color[1], color[2], color[3]);
+    }
+
+    public String getFiveBlockMinuteStringColored() {
+        String template = " %s %s %s %s %s %s %s %s %s %s %s ";
+        char[] status = statusComputer.computeFiveBlockMinuteStatus();
+        String[] color = new String[11];
+
+        for ( int i=0; i<status.length; i++) {
+            if (status[i] == 'Y'){ color[i] = "\\e[33m█"; }
+            else if (status[i] == 'R'){ color[i] = "\\e[31m█"; }
+            else if (status[i] == 'O'){ color[i] = "\\e[37m█"; }
+        }
+
+
+        return String.format(template, color[0], color[1], color[2], color[3], color[4],
+                color[5], color[6], color[7], color[8], color[9], color[10]);
+    }
 }

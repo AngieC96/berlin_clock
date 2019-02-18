@@ -104,4 +104,26 @@ public class TimeDisplayerTest {
 
         assertThat(timeDisplayer.getFiveBlockHourStringColored(), is(equalTo(expected)));
     }
+
+    @Test
+    public void getSingleBlockMinuteStringColoredTest() {
+        LocalTime time = LocalTime.of(12, 37, 32);
+        TimeDisplayer displayer = new TimeDisplayer(time);
+
+        String expected = "   \\e[33m█    \\e[33m█     \\e[37m█    \\e[37m█   ";
+
+        assertThat(displayer.getSingleBlockMinuteStringColored(), is(equalTo(expected)));
+
+    }
+
+    @Test
+    public void getFiveBlockMinuteStringColoredTest() {
+        LocalTime time = LocalTime.of(12, 42, 32);
+        TimeDisplayer displayer = new TimeDisplayer(time);
+
+        String expected = " \\e[33m█ \\e[33m█ \\e[31m█ \\e[33m█ \\e[33m█ \\e[31m█ \\e[33m█ \\e[33m█ \\e[37m█ \\e[37m█ \\e[37m█ ";
+
+        assertThat(displayer.getFiveBlockMinuteStringColored(), is(equalTo(expected)));
+
+    }
 }
