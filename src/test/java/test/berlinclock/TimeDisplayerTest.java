@@ -75,4 +75,14 @@ public class TimeDisplayerTest {
 
         assertThat(displayer.toString(), is(equalTo(expected)));
     }
+
+    @Test
+    public void getFiveBlockHourStringColoredTest() {
+        LocalTime time = LocalTime.of(12, 41, 32);
+        TimeDisplayer timeDisplayer = new TimeDisplayer(time);
+
+        String expected = "   \\e[31m█    \\e[31m█     \\e[37m█    \\e[37m█   ";
+
+        assertThat(timeDisplayer.getFiveBlockHourStringColored(), is(equalTo(expected)));
+    }
 }

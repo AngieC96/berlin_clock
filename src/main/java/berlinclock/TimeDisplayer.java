@@ -56,4 +56,16 @@ public class TimeDisplayer {
                 getFiveBlockMinuteString() + '\n' +
                 getSingleBlockMinuteString() + '\n';
     }
+
+    public String getFiveBlockHourStringColored() {
+        String template = "   %s    %s     %s    %s   ";
+        char[] status = statusComputer.computeFiveBlockHourStatus();
+        String[] color = new String[4];
+
+        for ( int i=0; i<status.length; i++) {
+            color[i] = status[i] == 'R' ?  "\\e[31m█" : "\\e[37m█";
+        }
+
+        return String.format(template, color[0], color[1], color[2], color[3]);
+    }
 }
