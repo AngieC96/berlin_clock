@@ -13,8 +13,17 @@ public class BerlinClock {
         timeDisplayer = new TimeDisplayer(time);
     }
 
+    public BerlinClock(boolean withColors) {
+        LocalTime time = LocalTime.now();
+        timeDisplayer = new TimeDisplayer(time, withColors);
+    }
+
     public BerlinClock(LocalTime time) {
         timeDisplayer = new TimeDisplayer(time);
+    }
+
+    public BerlinClock(LocalTime time, boolean withColors) {
+        timeDisplayer = new TimeDisplayer(time, withColors);
     }
 
     public void print() {
@@ -22,8 +31,12 @@ public class BerlinClock {
     }
 
     public static void main(String[] args) throws InterruptedException {
+        boolean withColors = false;
+
+        if (args.length > 0 && args[0].equals("-c")) withColors = true;
+
         while (true) {
-            BerlinClock berlinclock = new BerlinClock();
+            BerlinClock berlinclock = new BerlinClock(withColors);
             berlinclock.print();
 
             sleep(1000);

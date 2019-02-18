@@ -5,9 +5,15 @@ import java.time.LocalTime;
 public class TimeDisplayer {
 
     private StatusComputer statusComputer;
+    private boolean withColors = false;
 
     public TimeDisplayer(LocalTime time) {
         statusComputer = new StatusComputer(time);
+    }
+
+    public TimeDisplayer(LocalTime time, boolean withColors) {
+        statusComputer = new StatusComputer(time);
+        this.withColors = withColors;
     }
 
     public String getFiveBlockHourString() {
