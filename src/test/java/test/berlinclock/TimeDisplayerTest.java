@@ -63,6 +63,16 @@ public class TimeDisplayerTest {
     }
 
     @Test
+    public void getSingleBlockHourStringColoredTest() {
+        LocalTime time = LocalTime.of(6, 41, 37);
+        TimeDisplayer timeDisplayer = new TimeDisplayer(time);
+
+        String expected = "   \\e[31m█    \\e[37m█     \\e[37m█    \\e[37m█   ";
+
+        assertThat(timeDisplayer.getSingleBlockHourStringColored(), is(equalTo(expected)));
+    }
+
+    @Test
     public void toStringTest() {
         LocalTime time = LocalTime.of(17, 42, 2);
         TimeDisplayer displayer = new TimeDisplayer(time);

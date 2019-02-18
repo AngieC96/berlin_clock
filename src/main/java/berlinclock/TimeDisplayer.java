@@ -49,6 +49,18 @@ public class TimeDisplayer {
                 status[5], status[6], status[7], status[8], status[9], status[10]);
     }
 
+    public String getSingleBlockHourStringColored() {
+        String template = "   %s    %s     %s    %s   ";
+        char[] status = statusComputer.computeSingleBlockHourStatus();
+        String[] statusCol = new String[status.length];
+
+        for (int i = 0; i < status.length; i++) {
+            statusCol[i] = status[i] == 'R' ? "\\e[31m█" : "\\e[37m█";
+        }
+
+        return String.format(template, statusCol[0], statusCol[1], statusCol[2], statusCol[3]);
+    }
+
     public String toString() {
         return getSecondString() + '\n' +
                 getFiveBlockHourString() + '\n' +
