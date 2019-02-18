@@ -36,6 +36,8 @@ public class BerlinClock {
         if (args.length > 0 && args[0].equals("-c")) withColors = true;
 
         while (true) {
+            System.out.print("\033[H\033[2J"); // To clean the screen
+
             BerlinClock berlinclock = new BerlinClock(withColors);
             berlinclock.print();
 
