@@ -2,12 +2,10 @@ package berlinclock;
 
 import java.time.LocalTime;
 
-public class ColoredDisplayer {
-
-    private StatusComputer statusComputer;
+public class ColoredDisplayer extends TimeDisplayer {
 
     public ColoredDisplayer(LocalTime time) {
-        statusComputer = new StatusComputer(time);
+        super(time);
     }
 
     public String getSecondString() {

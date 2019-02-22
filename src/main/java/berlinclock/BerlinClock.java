@@ -10,20 +10,29 @@ public class BerlinClock {
 
     public BerlinClock() {
         LocalTime time = LocalTime.now();
-        timeDisplayer = new TimeDisplayer(time);
+        timeDisplayer = new CharacterDisplayer(time);
     }
 
     public BerlinClock(boolean withColors) {
         LocalTime time = LocalTime.now();
-        timeDisplayer = new TimeDisplayer(time, withColors);
+
+        if (withColors) {
+            timeDisplayer = new ColoredDisplayer(time);
+        } else {
+            timeDisplayer = new CharacterDisplayer(time);
+        }
     }
 
     public BerlinClock(LocalTime time) {
-        timeDisplayer = new TimeDisplayer(time);
+        timeDisplayer = new CharacterDisplayer(time);
     }
 
     public BerlinClock(LocalTime time, boolean withColors) {
-        timeDisplayer = new TimeDisplayer(time, withColors);
+        if (withColors) {
+            timeDisplayer = new ColoredDisplayer(time);
+        } else {
+            timeDisplayer = new CharacterDisplayer(time);
+        }
     }
 
     public void print() {
