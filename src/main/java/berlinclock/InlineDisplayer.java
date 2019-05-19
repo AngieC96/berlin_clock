@@ -63,6 +63,10 @@ public class InlineDisplayer extends TimeDisplayer {
     }
 
     public String toString() {
-        return null;
+        return getSecondString() +
+                getFiveBlockHourString()  +
+                getSingleBlockHourString() +
+                getFiveBlockMinuteString() +
+                getSingleBlockMinuteString();
     }
 }

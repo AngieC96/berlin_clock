@@ -59,4 +59,15 @@ public class InlineDisplayerTest {
         assertThat(displayer.getSingleBlockMinuteString(), is(equalTo(expected)));
     }
 
+
+    @Test
+    public void toStringTest() {
+        LocalTime time = LocalTime.of(13, 46, 17);
+        InlineDisplayer displayer = new InlineDisplayer(time);
+
+        String expected = "0" + "1100" + "1110" + "11111111100" + "1000";
+
+        assertThat(displayer.toString(), is(equalTo(expected)));
+    }
+
 }
