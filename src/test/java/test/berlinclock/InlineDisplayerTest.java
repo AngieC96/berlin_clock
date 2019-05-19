@@ -19,4 +19,14 @@ public class InlineDisplayerTest {
         assertThat(displayer.getSecondString(), is(equalTo("1")));
     }
 
+    @Test
+    public void getFiveBlockHourStringTest() {
+        LocalTime time = LocalTime.of(13, 46, 17);
+        InlineDisplayer displayer = new InlineDisplayer(time);
+
+        String expected = "1100";
+
+        assertThat(displayer.getFiveBlockHourString(), is(equalTo(expected)));
+    }
+
 }
