@@ -26,7 +26,15 @@ public class InlineDisplayer extends TimeDisplayer {
     }
 
     public String getSingleBlockHourString() {
-        return null;
+        String template = "%c%c%c%c";
+        char[] status = statusComputer.computeSingleBlockHourStatus();
+        char[] binary = new char[4];
+
+        for (int i = 0; i < status.length; i++) {
+            binary[i] = status[i] == 'R' ? '1' : '0';
+        }
+
+        return String.format(template, binary[0], binary[1], binary[2], binary[3]);
     }
 
     public String getSingleBlockMinuteString() {
