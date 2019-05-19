@@ -39,4 +39,24 @@ public class InlineDisplayerTest {
         assertThat(displayer.getSingleBlockHourString(), is(equalTo(expected)));
     }
 
+    @Test
+    public void getFiveBlockMinuteStringTest() {
+        LocalTime time = LocalTime.of(13, 46, 17);
+        InlineDisplayer displayer = new InlineDisplayer(time);
+
+        String expected = "11111111100";
+
+        assertThat(displayer.getFiveBlockMinuteString(), is(equalTo(expected)));
+    }
+
+    @Test
+    public void getSingleBlockMinuteStringTest() {
+        LocalTime time = LocalTime.of(13, 46, 17);
+        InlineDisplayer displayer = new InlineDisplayer(time);
+
+        String expected = "1000";
+
+        assertThat(displayer.getSingleBlockMinuteString(), is(equalTo(expected)));
+    }
+
 }

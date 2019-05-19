@@ -37,12 +37,29 @@ public class InlineDisplayer extends TimeDisplayer {
         return String.format(template, binary[0], binary[1], binary[2], binary[3]);
     }
 
-    public String getSingleBlockMinuteString() {
-        return null;
+    public String getFiveBlockMinuteString() {
+        String template = "%c%c%c%c%c%c%c%c%c%c%c";
+        char[] status = statusComputer.computeFiveBlockMinuteStatus();
+        char[] binary = new char[11];
+
+        for (int i = 0; i < status.length; i++) {
+            binary[i] = status[i] == 'O' ? '0' : '1';
+        }
+
+        return String.format(template, binary[0], binary[1], binary[2], binary[3], binary[4],
+                binary[5], binary[6], binary[7], binary[8], binary[9], binary[10]);
     }
 
-    public String getFiveBlockMinuteString() {
-        return null;
+    public String getSingleBlockMinuteString() {
+        String template = "%c%c%c%c";
+        char[] status = statusComputer.computeSingleBlockMinuteStatus();
+        char[] binary = new char[4];
+
+        for (int i = 0; i < status.length; i++) {
+            binary[i] = status[i] == 'Y' ? '1' : '0';
+        }
+
+        return String.format(template, binary[0], binary[1], binary[2], binary[3]);
     }
 
     public String toString() {
