@@ -6,7 +6,7 @@ import static java.lang.Thread.sleep;
 
 public class BerlinClock {
 
-    public enum DisplayMode { BASE, COLOR };
+    public enum DisplayMode { BASE, COLOR, INLINE };
 
     private TimeDisplayer timeDisplayer;
 
@@ -20,6 +20,9 @@ public class BerlinClock {
             case COLOR:
                 timeDisplayer = new ColoredDisplayer(time);
                 break;
+            case INLINE:
+                timeDisplayer = new InlineDisplayer(time);
+                break;
         }
     }
 
@@ -30,6 +33,9 @@ public class BerlinClock {
                 break;
             case COLOR:
                 timeDisplayer = new ColoredDisplayer(time);
+                break;
+            case INLINE:
+                timeDisplayer = new InlineDisplayer(time);
                 break;
         }
     }
@@ -43,6 +49,8 @@ public class BerlinClock {
 
         if (args.length > 0 && args[0].equals("--colors")) {
             displayMode = DisplayMode.COLOR;
+        } else if (args.length > 0 && args[0].equals("--inline")) {
+            displayMode = DisplayMode.INLINE;
         }
 
         while (true) {
