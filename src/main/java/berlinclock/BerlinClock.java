@@ -6,32 +6,31 @@ import static java.lang.Thread.sleep;
 
 public class BerlinClock {
 
+    public enum DisplayMode { BASE, COLOR };
+
     private TimeDisplayer timeDisplayer;
 
-    public BerlinClock() {
-        LocalTime time = LocalTime.now();
-        timeDisplayer = new CharacterDisplayer(time);
-    }
-
-    public BerlinClock(boolean withColors) {
+    public BerlinClock(DisplayMode displayMode) {
         LocalTime time = LocalTime.now();
 
-        if (withColors) {
-            timeDisplayer = new ColoredDisplayer(time);
-        } else {
-            timeDisplayer = new CharacterDisplayer(time);
+        switch (displayMode) {
+            case BASE:
+                timeDisplayer = new CharacterDisplayer(time);
+                break;
+            case COLOR:
+                timeDisplayer = new ColoredDisplayer(time);
+                break;
         }
     }
 
-    public BerlinClock(LocalTime time) {
-        timeDisplayer = new CharacterDisplayer(time);
-    }
-
-    public BerlinClock(LocalTime time, boolean withColors) {
-        if (withColors) {
-            timeDisplayer = new ColoredDisplayer(time);
-        } else {
-            timeDisplayer = new CharacterDisplayer(time);
+    public BerlinClock(LocalTime time, DisplayMode displayMode) {
+        switch (displayMode) {
+            case BASE:
+                timeDisplayer = new CharacterDisplayer(time);
+                break;
+            case COLOR:
+                timeDisplayer = new ColoredDisplayer(time);
+                break;
         }
     }
 
@@ -40,14 +39,16 @@ public class BerlinClock {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        boolean withColors = false;
+        DisplayMode displayMode = DisplayMode.BASE;
 
-        if (args.length > 0 && args[0].equals("-c")) withColors = true;
+        if (args.length > 0 && args[0].equals("--colors")) {
+            displayMode = DisplayMode.COLOR;
+        }
 
         while (true) {
             System.out.print("\033[H\033[2J"); // To clean the screen
 
-            BerlinClock berlinclock = new BerlinClock(withColors);
+            BerlinClock berlinclock = new BerlinClock(displayMode);
             berlinclock.print();
 
             sleep(1000);
