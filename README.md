@@ -15,6 +15,8 @@ _Source: [Wikipedia](https://en.wikipedia.org/wiki/Mengenlehreuhr)_
 ### Example image
 ![berliclock](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Berlin-Uhr-1650-1705.gif/170px-Berlin-Uhr-1650-1705.gif)
 
+#### Disclaimer
+The program makes use of some escape code characters to clean the screen and color the output. These ones work only on the standard Unix shells.
 ---
 
 ### Developers
